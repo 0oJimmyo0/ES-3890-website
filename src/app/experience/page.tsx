@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <PageFrame>
+    <PageFrame pageContext="experience">
       <PageHeader
         eyebrow="Experience"
         title="Experience"
@@ -35,4 +35,3 @@ export default function ExperiencePage() {
     </PageFrame>
   );
 }
-

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function CVPage() {
   return (
-    <PageFrame>
+    <PageFrame pageContext="cv">
       <PageHeader
         eyebrow="Curriculum Vitae"
         title="CV"
@@ -36,4 +36,3 @@ export default function CVPage() {
     </PageFrame>
   );
 }
-

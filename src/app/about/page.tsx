@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <PageFrame>
+    <PageFrame pageContext="about">
       <PageHeader
         eyebrow="About"
         title="About"

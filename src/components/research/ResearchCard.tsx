@@ -1,7 +1,7 @@
 import { ArrowRight, BarChart3, Brain, FileText } from "lucide-react";
 
+import { AssistantTrigger } from "@/components/assistant/AssistantTrigger";
 import type { ResearchProject } from "@/data/research";
-import { Button } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
 
 const icons = {
@@ -37,14 +37,13 @@ export function ResearchCard({ project }: ResearchCardProps) {
           <Tag key={tag}>{tag}</Tag>
         ))}
       </div>
-      <Button
-        aria-label={`Ask AI about ${project.title}; available in a later stage`}
-        className="mt-5 w-full justify-between border border-line bg-surface text-left text-ink hover:bg-surface"
-        disabled
-        variant="secondary"
+      <AssistantTrigger
+        aria-label={`Ask AI about ${project.title}`}
+        className="mt-5 inline-flex min-h-11 w-full items-center justify-between gap-2 rounded-md border border-line bg-surface px-4 text-left text-sm font-semibold text-ink transition-colors hover:border-accent hover:bg-accent-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+        question={`Tell me about ${project.title}.`}
       >
         Ask AI about this work <ArrowRight aria-hidden="true" size={16} />
-      </Button>
+      </AssistantTrigger>
     </article>
   );
 }

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function PublicationsPage() {
   return (
-    <PageFrame>
+    <PageFrame pageContext="publications">
       <PageHeader
         eyebrow="Publications"
         title="Publications"
@@ -38,4 +38,3 @@ export default function PublicationsPage() {
     </PageFrame>
   );
 }
-

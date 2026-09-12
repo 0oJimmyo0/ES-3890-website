@@ -18,7 +18,7 @@ const themeAnchors = {
 
 export default function ResearchPage() {
   return (
-    <PageFrame>
+    <PageFrame pageContext="research">
       <PageHeader
         eyebrow="Research"
         title="Research"
@@ -71,4 +71,3 @@ export default function ResearchPage() {
     </PageFrame>
   );
 }
-
