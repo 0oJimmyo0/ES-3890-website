@@ -23,10 +23,9 @@ export function LatestPublications() {
       </div>
       <div className="mt-7 divide-y divide-line rounded-lg border border-line bg-paper">
         {latestPublications.map((publication) => (
-          <PublicationRow key={publication.title} publication={publication} />
+          <PublicationRow key={publication.id} compact publication={publication} />
         ))}
       </div>
     </section>
   );
 }
-

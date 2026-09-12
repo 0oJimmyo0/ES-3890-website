@@ -40,15 +40,15 @@ export function Hero() {
             and evaluation of large language models.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Button href="#featured-research">
+            <Button href="/research">
               View Research <ArrowRight aria-hidden="true" size={16} />
             </Button>
-            <Button href="#cv-download" variant="secondary">
+            <Button href="/cv" variant="secondary">
               <Download aria-hidden="true" size={16} />
               Download CV
             </Button>
           </div>
-          <p className="mt-3 text-xs text-muted">CV download will be connected in a later stage.</p>
+          <p className="mt-3 text-xs text-muted">The current CV page will provide the public download when available.</p>
         </div>
 
         <div className="relative">
@@ -95,4 +95,3 @@ export function Hero() {
     </section>
   );
 }
-

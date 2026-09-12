@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Menu, Search, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { navigationItems } from "@/data/navigation";
@@ -9,6 +10,10 @@ import { PageContainer } from "@/components/layout/PageContainer";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname() ?? "/";
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header className="border-b border-line bg-paper/95 backdrop-blur-sm">
@@ -27,17 +32,18 @@ export function Navbar() {
 
           <div className="hidden items-center gap-7 md:flex">
             {navigationItems.map((item) => {
-              const isActive = item.href === "/";
+              const active = isActive(item.href);
 
               return (
                 <Link
                   key={item.href}
                   className={`relative py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 ${
-                    isActive
+                    active
                       ? "text-accent-dark after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-accent"
                       : "text-muted hover:text-ink"
                   }`}
                   href={item.href}
+                  aria-current={active ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
@@ -72,9 +78,10 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   className={`border-b border-line py-3 text-sm font-medium last:border-b-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset ${
-                    item.href === "/" ? "text-accent-dark" : "text-muted"
+                    isActive(item.href) ? "text-accent-dark" : "text-muted"
                   }`}
                   href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
@@ -87,4 +94,3 @@ export function Navbar() {
     </header>
   );
 }
-

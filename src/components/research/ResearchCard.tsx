@@ -6,7 +6,7 @@ import { Tag } from "@/components/ui/Tag";
 
 const icons = {
   "EEG / NeuroAI": Brain,
-  "Clinical NLP": FileText,
+  "Clinical NLP / Health AI": FileText,
   "LLM Evaluation": BarChart3,
 };
 
@@ -31,7 +31,7 @@ export function ResearchCard({ project }: ResearchCardProps) {
       <h3 className="mt-2 font-serif text-xl font-semibold leading-snug tracking-[-0.03em] text-ink">
         {project.title}
       </h3>
-      <p className="mt-3 text-sm leading-6 text-muted">{project.description}</p>
+      <p className="mt-3 text-sm leading-6 text-muted">{project.shortDescription}</p>
       <div className="mt-5 flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
@@ -48,4 +48,3 @@ export function ResearchCard({ project }: ResearchCardProps) {
     </article>
   );
 }
-
