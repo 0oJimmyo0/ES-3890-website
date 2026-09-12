@@ -21,7 +21,7 @@ export default function AboutPage() {
       />
 
       <div className="grid gap-12 py-12 sm:py-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.7fr)] lg:gap-16">
-        <section aria-labelledby="about-narrative-heading">
+        <section id="about-overview" aria-labelledby="about-narrative-heading">
           <h2 id="about-narrative-heading" className="font-serif text-2xl font-semibold tracking-[-0.03em] text-ink">A research-first perspective</h2>
           <div className="mt-5 space-y-4 text-base leading-7 text-muted">
             {profile.shortBio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -40,7 +40,7 @@ export default function AboutPage() {
         </section>
       </div>
 
-      <section aria-labelledby="education-heading" className="border-t border-line py-12 sm:py-14">
+      <section id="education" aria-labelledby="education-heading" className="border-t border-line py-12 sm:py-14">
         <h2 id="education-heading" className="font-serif text-3xl font-semibold tracking-[-0.035em] text-ink">Education</h2>
         <div className="mt-7 rounded-lg border border-line bg-paper p-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
@@ -61,7 +61,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-labelledby="skills-heading" className="border-t border-line py-12 sm:py-14">
+      <section id="skills" aria-labelledby="skills-heading" className="border-t border-line py-12 sm:py-14">
         <h2 id="skills-heading" className="font-serif text-3xl font-semibold tracking-[-0.035em] text-ink">Technical Interests and Skills</h2>
         <div className="mt-7 grid gap-4 md:grid-cols-3">
           {profile.skills.map((group) => (
@@ -77,4 +77,3 @@ export default function AboutPage() {
     </PageFrame>
   );
 }
-

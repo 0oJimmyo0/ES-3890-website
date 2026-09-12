@@ -9,7 +9,7 @@ type PublicationRowProps = {
 
 export function PublicationRow({ publication, compact = false }: PublicationRowProps) {
   return (
-    <article className="flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <article id={publication.id} className="scroll-mt-6 flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
       <div className="flex min-w-0 items-start gap-3">
         <BookOpen aria-hidden="true" className="mt-0.5 shrink-0 text-accent-dark" size={18} strokeWidth={1.8} />
         <div className="min-w-0">

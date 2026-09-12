@@ -9,7 +9,7 @@ type ExperienceEntryProps = {
 
 export function ExperienceEntry({ item }: ExperienceEntryProps) {
   return (
-    <li className="relative pl-7 sm:pl-10">
+    <li id={item.id} className="relative scroll-mt-6 pl-7 sm:pl-10">
       <span aria-hidden="true" className="absolute left-0 top-1.5 h-2.5 w-2.5 rounded-full border-2 border-accent bg-paper sm:left-1" />
       <article>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
@@ -39,4 +39,3 @@ export function ExperienceEntry({ item }: ExperienceEntryProps) {
     </li>
   );
 }
-
