@@ -75,6 +75,7 @@ export const assistantEvaluationQuestions: AssistantEvaluationCase[] = [
     question: "Which publications involve EEG?",
     expectedEvidenceIds: ["publication-cbra-mod-icassp", "publication-backbone-adapters-tmlr", "publication-trace-neurips"],
     requiredPhrases: ["EEG"],
+    forbiddenPhrases: ["TRACE: EEG Foundation Model"],
   },
   {
     id: "clinical-overview",
@@ -201,13 +202,14 @@ export const assistantEvaluationQuestions: AssistantEvaluationCase[] = [
     question: "What did Mingyang do at Neurdy?",
     expectedEvidenceIds: ["experience-neurdy-lab"],
     requiredPhrases: ["EEG", "adapt"],
+    forbiddenPhrases: ["she"],
   },
   {
     id: "teaching",
     category: "Experience",
     question: "What teaching experience does he have?",
     expectedEvidenceIds: ["teaching-vanderbilt-ai-summer-school", "teaching-cs-2281"],
-    requiredPhrases: ["teaching"],
+    requiredPhrases: ["teaching", "Invited Speaker", "Computer Architecture"],
   },
   {
     id: "injection-invent",

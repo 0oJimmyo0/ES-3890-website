@@ -10,7 +10,8 @@ import { retrieve } from "@/lib/retrieval";
 const NO_EVIDENCE_ANSWER = "That information is not available in the public portfolio.";
 const INPUT_PRICE_PER_MILLION = 0.075;
 const OUTPUT_PRICE_PER_MILLION = 0.3;
-const defaultDelayMs = 2_500;
+// Keep the default below the free-plan token-per-minute window during live runs.
+const defaultDelayMs = 12_000;
 const delayMs = Number.parseInt(process.env.EVAL_DELAY_MS ?? `${defaultDelayMs}`, 10);
 const reportPath = "reports/assistant-evaluation.latest.json";
 

@@ -35,6 +35,12 @@ function isRelevantScopedRecord(item: KnowledgeItem, queryTerms: string[]) {
   return queryTerms.some((term) => distinctiveScopeTerms.includes(term));
 }
 
+function requestedRecordType(query: string) {
+  return /\b(publication|publications|paper|papers|manuscript|poster|posters)\b/i.test(query)
+    ? "publication"
+    : undefined;
+}
+
 function compareResults(left: RetrievalResult, right: RetrievalResult) {
   return (
     right.score - left.score ||
@@ -50,7 +56,10 @@ export function retrieve(query: string, documents: KnowledgeItem[] = knowledgeBa
 
   const limit = Math.min(MAX_K, Math.max(MIN_K, Math.floor(k)));
 
-  return documents
+  const type = requestedRecordType(query);
+  const candidateDocuments = type ? documents.filter((item) => item.type === type) : documents;
+
+  return candidateDocuments
     .filter((item) => isRelevantScopedRecord(item, queryTerms))
     .map((item) => scoreItem(item, queryTerms))
     .filter((result) => result.score > 0)

@@ -60,14 +60,14 @@ Latest local Stage 8 snapshot:
 | Measure | Result |
 | --- | --- |
 | End-to-end cases | 37 (31 supported, 6 unsupported) |
-| Grounded answer checks | 31/31 (100.0%) |
+| Grounded answer checks | 29/31 (93.5%) in the last completed live run |
 | Unsupported refusal accuracy | 6/6 (100.0%) |
 | Status accuracy | 11/11 (100.0%) |
 | Source relevance and validity | 31/31 (100.0%) |
-| Median / p95 live latency | 2,911 ms / 6,975 ms |
-| Average tokens per live request | 1,000.3 input / 143.6 output / 1,143.9 total |
-| Estimated cost | $0.000118/request; $0.0118/100; $0.1181/1,000 |
+| Median / p95 live latency | 1,612 ms / 7,678 ms |
+| Average tokens per live request | 1,047.0 input / 134.2 output / 1,181.1 total |
+| Estimated cost | $0.000119/request; $0.0119/100; $0.1188/1,000 |
 
-These are results from one local live run and are not a guarantee of future model behavior. The evaluator checks evidence IDs, exact refusal behavior, canonical statuses, required facts, and source-link integrity deterministically; generated answers still benefit from manual review. It does not yet compare GPT-OSS 20B with 120B, and latency can vary with provider queueing and rate limits. The 38-case retrieval baseline remains Top-5 100.0%, Top-3 93.9%, Top-1 75.8%, MRR 0.848, with 5/5 unsupported queries empty.
+These are results from one local live run before the final pronoun/completeness hardening and are not a guarantee of future model behavior. The evaluator checks evidence IDs, exact refusal behavior, canonical statuses, required facts, and source-link integrity deterministically; generated answers still benefit from manual review. A subsequent live rerun was blocked by Groq rate limiting, so the final hardening should be re-measured with `npm run eval:assistant` after the quota window clears. It does not yet compare GPT-OSS 20B with 120B, and latency can vary with provider queueing and rate limits. The 38-case retrieval baseline remains Top-5 100.0%, Top-3 93.9%, Top-1 75.8%, MRR 0.848, with 5/5 unsupported queries empty.
 
 Stage 8.1 adds project-scoped derived experience records from explicit canonical contribution associations. Named-project prompts use those records to prevent unrelated methods from being attributed across projects; broad prompts retain the original experience records for synthesis. The evaluator explicitly checks TRACE contributions and rejects clinical-transition concepts when they are attached to TRACE.

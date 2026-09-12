@@ -72,6 +72,13 @@ function ensureCanonicalStatus(question: string, answer: string, results: Return
   return `${answer}\n\nThe portfolio lists the relevant record as ${target.status}.`;
 }
 
+function removeInferredGenderedPronouns(answer: string) {
+  return answer
+    .replace(/\bshe\b/giu, "Mingyang")
+    .replace(/\bher\b/giu, "Mingyang's")
+    .replace(/\bhers\b/giu, "Mingyang's");
+}
+
 export async function POST(request: Request) {
   let payload: unknown;
 
@@ -120,7 +127,7 @@ export async function POST(request: Request) {
 
     const generatedAnswer = completion.choices[0]?.message?.content?.trim();
     if (!generatedAnswer) return errorResponse(502, "UPSTREAM_INVALID_RESPONSE", "The research assistant returned an empty answer.");
-    const answer = ensureCanonicalStatus(question, generatedAnswer, results);
+    const answer = removeInferredGenderedPronouns(ensureCanonicalStatus(question, generatedAnswer, results));
 
     const response: {
       answer: string;
