@@ -1,6 +1,6 @@
 # Mingyang Jiang Academic Portfolio
 
-Stage 1 foundation for an academic portfolio with a future grounded research assistant.
+Academic portfolio with a server-side grounded research assistant.
 
 ## Local development
 
@@ -15,19 +15,33 @@ Validation commands:
 npm run lint
 npm run typecheck
 npm run build
+npm run eval:retrieval
+npm run test:assistant
 ```
-
-The current page intentionally contains visual placeholders only. Portfolio content and the AI assistant are reserved for later stages.
 
 ## Content architecture
 
-Canonical portfolio data is rendered by the website and transformed deterministically into `KnowledgeItem` records for future retrieval. The planned flow is:
+Canonical portfolio data is rendered by the website and transformed deterministically into `KnowledgeItem` records. Retrieval selects the evidence; the server then constructs the grounded prompt and calls Groq. The assistant frontend is reserved for a later stage.
 
 ```text
 canonical portfolio data → website pages
                         → KnowledgeItem layer
-                        → retrieval in a future stage
-                        → grounded assistant in a future stage
+                        → deterministic retrieval
+                        → top-k public evidence
+                        → server-side grounded prompt
+                        → Groq
+                        → answer + deterministic source metadata
 ```
 
-The knowledge layer does not call an LLM, contain embeddings, or expose a public navigation page.
+## Environment configuration
+
+Copy the example values into the local-only `.env.local` file:
+
+```env
+GROQ_API_KEY=your_key_here
+GROQ_MODEL=openai/gpt-oss-20b
+```
+
+`.env.local` is ignored by Git. Never use `NEXT_PUBLIC_` for the API key or commit the file.
+
+Stage 6 includes the server-side `/api/assistant` route. The assistant UI, retrieval changes, embeddings, and vector database are not included yet.
