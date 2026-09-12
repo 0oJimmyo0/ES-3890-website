@@ -30,6 +30,15 @@ export default function AboutPage() {
             <Button href="/research">View Research</Button>
             <Button href="/cv" variant="secondary">View CV</Button>
           </div>
+          <p className="mt-6 text-sm text-muted">
+            Contact: {" "}
+            <a
+              className="font-medium text-accent-dark underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+              href="mailto:mingyang.jiang@vanderbilt.edu"
+            >
+              mingyang.jiang@vanderbilt.edu
+            </a>
+          </p>
         </section>
 
         <section aria-labelledby="interests-heading" className="border-t border-line pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">

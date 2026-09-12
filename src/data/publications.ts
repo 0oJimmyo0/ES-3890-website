@@ -84,6 +84,7 @@ export const publications: Publication[] = [
     venue: "Nature Communications",
     status: "Major Revision Invited",
     topics: ["Healthcare AI", "Safety", "Clinical Reasoning"],
+    externalHref: "https://arxiv.org/abs/2607.08038",
   },
   {
     id: "trace-neurips",
@@ -118,4 +119,3 @@ export const publications: Publication[] = [
 ];
 
 export const latestPublications = publications.filter((publication) => publication.featured);
-
