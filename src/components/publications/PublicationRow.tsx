@@ -8,6 +8,13 @@ type PublicationRowProps = {
 };
 
 export function PublicationRow({ publication, compact = false }: PublicationRowProps) {
+  const actions = [
+    publication.pdfHref ? { label: "PDF", href: publication.pdfHref } : null,
+    publication.externalHref
+      ? { label: publication.externalHref.includes("arxiv.org") ? "arXiv" : "Source", href: publication.externalHref }
+      : null,
+  ].filter((action): action is { label: string; href: string } => Boolean(action));
+
   return (
     <article id={publication.id} className="scroll-mt-6 flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
       <div className="flex min-w-0 items-start gap-3">
@@ -29,41 +36,22 @@ export function PublicationRow({ publication, compact = false }: PublicationRowP
           )}
         </div>
       </div>
-      <div className="flex shrink-0 items-center gap-4 pl-8 text-xs font-semibold text-muted sm:pl-4">
-        {compact ? (
-          <>
-            <span aria-disabled="true" className="cursor-not-allowed">PDF</span>
-            <span aria-disabled="true" className="cursor-not-allowed">Cite</span>
-          </>
-        ) : (
-          <>
-            {publication.pdfHref && (
-              <a
-                className="transition-colors hover:text-accent-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
-                href={publication.pdfHref}
-                rel="noreferrer"
-                target="_blank"
-              >
-                PDF
-              </a>
-            )}
-            {publication.externalHref && (
-              <a
-                className="transition-colors hover:text-accent-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
-                href={publication.externalHref}
-                rel="noreferrer"
-                target="_blank"
-              >
-                Source
-              </a>
-            )}
-          </>
-        )}
-        {!compact && (publication.pdfHref || publication.externalHref) && (
+      {actions.length > 0 && (
+        <div className="flex shrink-0 items-center gap-4 pl-8 text-xs font-semibold text-muted sm:pl-4">
+          {actions.map((action) => (
+            <a
+              className="transition-colors hover:text-accent-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+              href={action.href}
+              key={action.href}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {action.label}
+            </a>
+          ))}
           <ArrowRight aria-hidden="true" className="text-accent-dark" size={16} />
-        )}
-        {compact && <ArrowRight aria-hidden="true" className="text-line" size={16} />}
-      </div>
+        </div>
+      )}
     </article>
   );
 }

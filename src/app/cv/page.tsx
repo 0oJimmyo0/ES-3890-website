@@ -25,7 +25,7 @@ export default function CVPage() {
             {profile.name}&apos;s academic CV
           </h2>
           <p className="mt-4 text-sm leading-6 text-muted">
-            CV download will be added shortly. The supplied source PDF remains local until a public-facing version is approved for publication.
+            The current public profile summarizes Mingyang&apos;s research interests, experience, and academic background. A downloadable CV will be published here when an approved public version is available.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button href="/about" variant="secondary">View About</Button>

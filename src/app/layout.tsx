@@ -17,8 +17,15 @@ const serif = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Mingyang Jiang | Academic Portfolio",
-  description: "Academic portfolio foundation for Mingyang Jiang.",
+  metadataBase: new URL("https://es-3890-website.vercel.app"),
+  title: "Mingyang Jiang | Research Portfolio",
+  description: "Research portfolio of Mingyang Jiang, focused on EEG / NeuroAI, clinical NLP, and reliable evaluation of AI systems.",
+  openGraph: {
+    title: "Mingyang Jiang | Research Portfolio",
+    description: "Research portfolio of Mingyang Jiang, focused on EEG / NeuroAI, clinical NLP, and reliable evaluation of AI systems.",
+    url: "https://es-3890-website.vercel.app",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -49,14 +49,6 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <button
-              aria-label="Search (coming later)"
-              className="rounded-md p-2 text-muted transition-colors hover:bg-accent-soft hover:text-accent-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-              disabled
-              type="button"
-            >
-              <Search aria-hidden="true" size={17} strokeWidth={1.8} />
-            </button>
           </div>
 
           <button

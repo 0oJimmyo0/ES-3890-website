@@ -1,4 +1,4 @@
-import { ArrowRight, Download, FileText, Globe2, GraduationCap } from "lucide-react";
+import { ArrowRight, FileText, Globe2, GraduationCap } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
 
@@ -26,7 +26,7 @@ export function Hero() {
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.88fr)] lg:items-center lg:gap-12">
         <div className="max-w-2xl">
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent-dark">
-            Student · Researcher · Life-long learner
+            Student · Researcher · Lifelong learner
           </p>
           <h1 id="hero-heading" className="mt-4 font-serif text-[2.65rem] font-semibold leading-[1.08] tracking-[-0.05em] text-ink sm:text-5xl lg:text-[3.4rem]">
             Mingyang Jiang
@@ -44,34 +44,35 @@ export function Hero() {
               View Research <ArrowRight aria-hidden="true" size={16} />
             </Button>
             <Button href="/cv" variant="secondary">
-              <Download aria-hidden="true" size={16} />
-              Download CV
+              <FileText aria-hidden="true" size={16} />
+              View CV
             </Button>
           </div>
-          <p className="mt-3 text-xs text-muted">The current CV page will provide the public download when available.</p>
         </div>
 
         <div className="relative">
           <div
             role="img"
-            aria-label="Placeholder for a public-safe Vanderbilt campus image"
-            className="relative aspect-[1.35] min-h-64 overflow-hidden rounded-lg border border-line bg-[#eaf3ff]"
+            aria-label="Abstract academic research visual in blue and white"
+            className="relative aspect-[1.35] min-h-64 overflow-hidden rounded-lg border border-line bg-[#eaf3ff] p-6"
           >
-            <div className="absolute inset-x-0 bottom-0 flex h-1/2 items-end justify-center gap-1.5 px-8 opacity-40" aria-hidden="true">
-              <span className="h-12 w-5 bg-[#9bbce5]" />
-              <span className="h-20 w-8 bg-[#7fa7d7]" />
-              <span className="h-14 w-10 bg-[#abc9eb]" />
-              <span className="h-28 w-12 bg-[#6d97c9]" />
-              <span className="h-16 w-7 bg-[#8bb1dd]" />
-              <span className="h-24 w-10 bg-[#709bcd]" />
-              <span className="h-11 w-6 bg-[#a4c2e8]" />
+            <div className="absolute inset-6 border border-accent/20" aria-hidden="true">
+              <div className="absolute inset-x-6 top-1/2 border-t border-accent/30" />
+              <div className="absolute inset-y-6 left-1/2 border-l border-accent/30" />
+              <div className="absolute bottom-8 left-8 h-24 w-24 rounded-full border-[12px] border-accent/20" />
+              <div className="absolute right-8 top-8 h-20 w-32 border-b-4 border-r-4 border-accent/45" />
+              <div className="absolute bottom-8 right-8 flex items-end gap-1.5">
+                <span className="h-10 w-2 bg-accent/35" />
+                <span className="h-16 w-2 bg-accent/55" />
+                <span className="h-24 w-2 bg-accent/75" />
+              </div>
             </div>
-            <div className="absolute left-6 top-6 max-w-[12rem] border-l-2 border-accent pl-4">
+            <div className="relative max-w-[14rem] border-l-2 border-accent pl-4">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
-                Campus image placeholder
+                Research in practice
               </p>
               <p className="mt-2 text-sm leading-6 text-muted">
-                A public-safe academic image can be added to this frame later.
+                Careful data, grounded methods, and reliable evaluation across real-world AI systems.
               </p>
             </div>
           </div>
