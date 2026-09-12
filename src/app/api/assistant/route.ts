@@ -32,6 +32,17 @@ function buildSources(results: ReturnType<typeof retrieve>) {
     .map(({ item }) => ({ title: item.sourceLabel, href: item.sourceHref }));
 }
 
+function ensureCanonicalStatus(question: string, answer: string, results: ReturnType<typeof retrieve>) {
+  if (!/\b(status|accepted|published|submitted|under review|major revision)\b/i.test(question)) return answer;
+
+  const firstStatus = results
+    .map(({ item }) => ({ title: item.title, status: item.content.match(/^Status:\s*(.+)$/m)?.[1] }))
+    .find((record): record is { title: string; status: string } => Boolean(record.status));
+  if (!firstStatus || answer.toLocaleLowerCase().includes(firstStatus.status.toLocaleLowerCase())) return answer;
+
+  return `${answer}\n\nThe portfolio lists the relevant record as ${firstStatus.status}.`;
+}
+
 export async function POST(request: Request) {
   let payload: unknown;
 
@@ -72,12 +83,15 @@ export async function POST(request: Request) {
       ],
       model: groq.model,
       temperature: 0.15,
-      max_completion_tokens: 600,
+      reasoning_effort: "low",
+      include_reasoning: false,
+      max_completion_tokens: 400,
       citation_options: "disabled",
     });
 
-    const answer = completion.choices[0]?.message?.content?.trim();
-    if (!answer) return errorResponse(502, "UPSTREAM_INVALID_RESPONSE", "The research assistant returned an empty answer.");
+    const generatedAnswer = completion.choices[0]?.message?.content?.trim();
+    if (!generatedAnswer) return errorResponse(502, "UPSTREAM_INVALID_RESPONSE", "The research assistant returned an empty answer.");
+    const answer = ensureCanonicalStatus(question, generatedAnswer, results);
 
     const response: {
       answer: string;
