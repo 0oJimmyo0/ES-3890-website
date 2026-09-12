@@ -78,14 +78,18 @@ async function runCase(test: AssistantEvaluationCase): Promise<EvaluationResult>
   let httpStatus = 500;
   let body: AssistantApiBody = {};
   try {
-    const request = new Request("http://localhost/api/assistant", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: test.question, history: test.history }),
-    });
-    const response = await POST(request);
-    httpStatus = response.status;
-    body = (await response.json()) as AssistantApiBody;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const request = new Request("http://localhost/api/assistant", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: test.question, history: test.history }),
+      });
+      const response = await POST(request);
+      httpStatus = response.status;
+      body = (await response.json()) as AssistantApiBody;
+      if (httpStatus !== 429 || attempt === 2) break;
+      await sleep(5_000 * (attempt + 1));
+    }
   } catch (error) {
     body = { error: { message: error instanceof Error ? error.message : "Unknown evaluation error" } };
   }
@@ -119,7 +123,7 @@ async function runCase(test: AssistantEvaluationCase): Promise<EvaluationResult>
   if (!sourceLinksValid) failureReasons.push("Returned source was missing, invalid, or not among retrieved evidence.");
   if (!sourceRelevant) failureReasons.push("Returned sources did not include an expected evidence source.");
 
-  const hardFailures = !refusalCorrect || !statusCorrect || !sourceLinksValid || !sourceRelevant || !expectedEvidenceHit || httpStatus !== 200;
+  const hardFailures = !refusalCorrect || !statusCorrect || !sourceLinksValid || !sourceRelevant || !expectedEvidenceHit || !forbiddenPhraseAbsent || httpStatus !== 200;
   const classification = hardFailures ? "FAIL" : requiredPhrasesPresent && forbiddenPhraseAbsent ? "PASS" : "PARTIAL";
   const usage = body.metadata?.usage;
   const normalizedUsage = usage && [usage.prompt_tokens, usage.completion_tokens, usage.total_tokens].every((token) => typeof token === "number")

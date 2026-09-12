@@ -16,6 +16,10 @@ assert(SYSTEM_PROMPT.includes("only from the supplied portfolio evidence"), "Sys
 const unsupportedResults = retrieve("What is Mingyang's favorite movie?", knowledgeBase, 5);
 assert(unsupportedResults.length === 0, "Unsupported retrieval should be empty.");
 
+const traceExperience = knowledgeBase.find((item) => item.id === "experience-yale-clinic-nlp-lab-trace-eeg-foundation-model");
+assert(Boolean(traceExperience), "TRACE should have a project-scoped experience record.");
+assert(!traceExperience?.content.includes("patient-disjoint"), "TRACE-scoped experience should exclude clinical-transition methods.");
+
 const validRequest = validateAssistantRequest({
   question: "What is his GPA?",
   history: [{ role: "user", content: "Tell me about his education." }],
@@ -29,4 +33,3 @@ console.log("Assistant development checks passed.");
 console.log(`Knowledge records: ${knowledgeBase.length}`);
 console.log(`Supported evidence records: ${supportedResults.length}`);
 console.log("Unsupported evidence records: 0");
-

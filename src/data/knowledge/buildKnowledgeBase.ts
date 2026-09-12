@@ -120,7 +120,12 @@ function buildExperienceItems(): KnowledgeItem[] {
       `Dates: ${item.dateLabel}`,
       item.location ? `Location: ${item.location}` : undefined,
       `Summary:\n${item.summary}`,
-      `Contributions:\n- ${item.contributions.join("\n- ")}`,
+      `Contributions:\n- ${item.contributions
+        .map((contribution, index) => {
+          const projects = item.contributionProjects?.[index] ?? [];
+          return projects.length > 0 ? `[Project association: ${projects.join(", ")}] ${contribution}` : contribution;
+        })
+        .join("\n- ")}`,
     ]
       .filter((line): line is string => Boolean(line))
       .join("\n\n"),
@@ -129,13 +134,46 @@ function buildExperienceItems(): KnowledgeItem[] {
   }));
 }
 
+function buildProjectExperienceItems(): KnowledgeItem[] {
+  return experience.flatMap((item) => {
+    const projectIds = Array.from(new Set(item.contributionProjects?.flat() ?? []));
+
+    return projectIds.flatMap((projectId) => {
+      const project = researchProjects.find((candidate) => candidate.id === projectId);
+      if (!project) return [];
+
+      const linkedContributions = item.contributions.filter((_, index) => item.contributionProjects?.[index]?.includes(projectId));
+      if (linkedContributions.length === 0) return [];
+
+      return [{
+        id: `experience-${item.id}-${projectId}`,
+        type: item.type === "Research" ? "experience" as const : "teaching" as const,
+        title: `${item.role} — ${project.title}`,
+        scope: projectId,
+        tags: uniqueTags(item.institution, item.lab, project.category, project.title, project.tags),
+        content: [
+          `Institution: ${item.institution}`,
+          item.lab ? `Lab: ${item.lab}` : undefined,
+          `Role: ${item.role}`,
+          `Project: ${project.title}`,
+          `Contributions explicitly associated with this project:\n- ${linkedContributions.join("\n- ")}`,
+        ]
+          .filter((line): line is string => Boolean(line))
+          .join("\n\n"),
+        sourceLabel: item.lab ? `Experience — ${item.lab}` : `Experience — ${item.institution}`,
+        sourceHref: `/experience#${item.id}`,
+      }];
+    });
+  });
+}
+
 const validSourceHrefs = new Set([
   "/about#about-overview",
   "/about#education",
   "/about#skills",
   ...researchProjects.map((project) => `/research#${project.id}`),
-  ...publications.map((publication) => `/publications#${publication.id}`),
-  ...experience.map((item) => `/experience#${item.id}`),
+    ...publications.map((publication) => `/publications#${publication.id}`),
+    ...experience.map((item) => `/experience#${item.id}`),
 ]);
 
 export function buildKnowledgeBase(): KnowledgeItem[] {
@@ -146,6 +184,7 @@ export function buildKnowledgeBase(): KnowledgeItem[] {
     ...buildResearchItems(),
     ...buildPublicationItems(),
     ...buildExperienceItems(),
+    ...buildProjectExperienceItems(),
   ];
 }
 

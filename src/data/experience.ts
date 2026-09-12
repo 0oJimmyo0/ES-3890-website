@@ -12,6 +12,7 @@ export type ExperienceItem = {
   location?: string;
   summary: string;
   contributions: string[];
+  contributionProjects?: string[][];
   tags: string[];
 };
 
@@ -32,6 +33,12 @@ export const experience: ExperienceItem[] = [
       "Developed provenance-preserving extraction, medication atomization, patient-disjoint evaluation, and refusal rules for clinical transition notes.",
       "Designed held-out evaluation for factual faithfulness, clinically material omissions, representation support, and downstream utility.",
     ],
+    contributionProjects: [
+      ["trace-eeg-foundation-model"],
+      ["trace-eeg-foundation-model"],
+      ["clinical-transition-notes"],
+      ["clinical-transition-notes"],
+    ],
     tags: ["Clinical NLP", "EEG", "EHR Data Curation", "LLM Evaluation"],
   },
   {
@@ -48,6 +55,11 @@ export const experience: ExperienceItem[] = [
       "Conducted EEG foundation-model research under PI Dr. Catie Chang.",
       "Developed and evaluated depth-aware selective adaptation methods using lightweight specialist modules and task-aware routing.",
       "Contributed to the CBraMod fine-tuning paper submitted to ICASSP 2027 and completed experiments for the TMLR submission.",
+    ],
+    contributionProjects: [
+      ["cbra-mod-fine-tuning", "backbone-informed-adapters"],
+      ["cbra-mod-fine-tuning", "backbone-informed-adapters"],
+      ["cbra-mod-fine-tuning", "backbone-informed-adapters"],
     ],
     tags: ["EEG", "Foundation Models", "Transfer Learning", "NeuroAI"],
   },
@@ -66,6 +78,11 @@ export const experience: ExperienceItem[] = [
       "Developed a deterministic normalization and evaluation framework combining candidate generation with semantic and temporal mismatch analysis.",
       "Wrote the manuscript submitted to BIBM 2026 and produced an AMIA 2026 accepted poster.",
     ],
+    contributionProjects: [
+      ["medication-evidence-concordance"],
+      ["medication-evidence-concordance"],
+      ["medication-evidence-concordance"],
+    ],
     tags: ["Clinical NLP", "EHR", "Medication Evidence"],
   },
   {
@@ -81,6 +98,11 @@ export const experience: ExperienceItem[] = [
       "Processed financial reports and bilingual financial news for cross-lingual question-answering task construction.",
       "Evaluated language models on PolyFiQA subsets and built comparative analyses of multilingual reasoning performance.",
       "Collected Japanese corporate disclosure data to support dataset construction and annotation for Ebisu.",
+    ],
+    contributionProjects: [
+      ["multifinben"],
+      ["multifinben"],
+      ["ebisu"],
     ],
     tags: ["Financial NLP", "Multilingual", "Benchmarking"],
   },
@@ -117,4 +139,3 @@ export const experience: ExperienceItem[] = [
 
 export const researchExperience = experience.filter((item) => item.type === "Research");
 export const teachingExperience = experience.filter((item) => item.type === "Teaching");
-

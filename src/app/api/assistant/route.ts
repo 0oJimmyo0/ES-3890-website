@@ -32,15 +32,44 @@ function buildSources(results: ReturnType<typeof retrieve>) {
     .map(({ item }) => ({ title: item.sourceLabel, href: item.sourceHref }));
 }
 
+function acronym(value: string) {
+  const ignoredWords = new Set(["a", "an", "and", "for", "in", "of", "on", "the", "to"]);
+  return value
+    .split(/\s+/u)
+    .map((word) => word.replace(/[^A-Za-z]/gu, "").toLocaleLowerCase())
+    .filter((word) => word.length > 0 && !ignoredWords.has(word))
+    .map((word) => word[0])
+    .join("");
+}
+
 function ensureCanonicalStatus(question: string, answer: string, results: ReturnType<typeof retrieve>) {
   if (!/\b(status|accepted|published|submitted|under review|major revision)\b/i.test(question)) return answer;
 
-  const firstStatus = results
-    .map(({ item }) => ({ title: item.title, status: item.content.match(/^Status:\s*(.+)$/m)?.[1] }))
-    .find((record): record is { title: string; status: string } => Boolean(record.status));
-  if (!firstStatus || answer.toLocaleLowerCase().includes(firstStatus.status.toLocaleLowerCase())) return answer;
+  const questionTokens = question.match(/[A-Za-z][A-Za-z0-9-]{2,}/gu)?.map((token) => token.toLocaleLowerCase()) ?? [];
+  const statusRecords = results
+    .map(({ item }) => ({
+      item,
+      status: item.content.match(/^Status:\s*(.+)$/m)?.[1],
+      venue: item.content.match(/^Venue:\s*(.+)$/m)?.[1],
+    }))
+    .filter((record): record is { item: (typeof results)[number]["item"]; status: string; venue: string | undefined } => Boolean(record.status));
+  const namedRecords = statusRecords.filter(({ item, venue }) => {
+    const searchableText = `${item.title} ${item.content}`.toLocaleLowerCase();
+    const aliases = venue ? [acronym(venue)] : [];
+    return questionTokens.some((token) => searchableText.includes(token) || aliases.includes(token));
+  });
+  const distinctStatuses = new Set(namedRecords.map((record) => record.status));
+  const explicitAcronyms = question.match(/\b[A-Z][A-Z0-9-]{2,}\b/g) ?? [];
+  const target = namedRecords.length > 0 && distinctStatuses.size === 1
+    ? namedRecords[0]
+    : explicitAcronyms.length > 0 && statusRecords.length > 0
+      ? statusRecords[0]
+      : statusRecords.length === 1
+        ? statusRecords[0]
+        : undefined;
+  if (!target || answer.toLocaleLowerCase().includes(target.status.toLocaleLowerCase())) return answer;
 
-  return `${answer}\n\nThe portfolio lists the relevant record as ${firstStatus.status}.`;
+  return `${answer}\n\nThe portfolio lists the relevant record as ${target.status}.`;
 }
 
 export async function POST(request: Request) {

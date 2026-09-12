@@ -50,8 +50,9 @@ export const assistantEvaluationQuestions: AssistantEvaluationCase[] = [
     id: "trace-role",
     category: "EEG / NeuroAI",
     question: "What did Mingyang contribute to TRACE?",
-    expectedEvidenceIds: ["research-trace-eeg-foundation-model", "experience-yale-clinic-nlp-lab"],
-    requiredPhrases: ["EEG"],
+    expectedEvidenceIds: ["research-trace-eeg-foundation-model", "experience-yale-clinic-nlp-lab-trace-eeg-foundation-model"],
+    requiredPhrases: ["EEG", "preprocess", "baseline"],
+    forbiddenPhrases: ["patient-disjoint", "factual faithfulness", "clinically material omission", "representation support", "medication atomization"],
   },
   {
     id: "trace-status",

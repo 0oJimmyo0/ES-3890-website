@@ -15,5 +15,5 @@ export interface KnowledgeItem {
   content: string;
   sourceLabel: string;
   sourceHref: string;
+  scope?: string;
 }
-
