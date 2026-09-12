@@ -3,7 +3,7 @@ import { publications } from "@/data/publications";
 import { profile } from "@/data/profile";
 import { researchProjects } from "@/data/research";
 
-import type { KnowledgeItem, KnowledgeType } from "@/data/knowledge/types";
+import type { KnowledgeItem } from "@/data/knowledge/types";
 
 function uniqueTags(...groups: (string | string[] | undefined)[]) {
   return Array.from(
@@ -20,7 +20,7 @@ function buildProfileItem(): KnowledgeItem {
     id: "profile-overview",
     type: "profile",
     title: profile.name,
-    tags: uniqueTags("Computer Science", "EEG", "NeuroAI", "Clinical NLP", "Health AI", "LLM Evaluation"),
+    tags: uniqueTags("Computer Science", "research interests", "EEG", "NeuroAI", "Clinical NLP", "Health AI", "LLM Evaluation"),
     content: [
       `Name: ${profile.name}`,
       `Headline: ${profile.headline}`,
@@ -109,8 +109,8 @@ function buildPublicationItems(): KnowledgeItem[] {
 
 function buildExperienceItems(): KnowledgeItem[] {
   return experience.map((item) => ({
-    id: `${item.type.toLowerCase()}-${item.id}`,
-    type: item.type.toLowerCase() as KnowledgeType,
+    id: `${item.type === "Research" ? "experience" : "teaching"}-${item.id}`,
+    type: item.type === "Research" ? "experience" : "teaching",
     title: item.role,
     tags: uniqueTags(item.tags, item.institution, item.lab),
     content: [
