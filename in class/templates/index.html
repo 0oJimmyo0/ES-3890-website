@@ -22,6 +22,11 @@
         background: white;
         box-shadow: 0 0.75rem 2rem #17202a12;
       }
+      .conversation { display: grid; gap: 1rem; margin: 1.5rem 0; }
+      .message { max-width: 85%; padding: 0.85rem 1rem; border-radius: 0.8rem; line-height: 1.55; overflow-wrap: anywhere; white-space: pre-wrap; }
+      .user-message { justify-self: end; background: #e8ebef; color: #303943; border-bottom-right-radius: 0.2rem; }
+      .assistant-message { justify-self: start; background: #f1f5fb; color: #17202a; border-bottom-left-radius: 0.2rem; }
+      .message-label { display: block; margin-bottom: 0.25rem; color: #697586; font-size: 0.75rem; font-weight: 600; }
       form { display: flex; gap: 0.75rem; }
       input {
         min-width: 0;
@@ -47,19 +52,32 @@
   <body>
     <main>
       <h1>Enter some text</h1>
+      {% if captured_text is not none or llm_response or error_message %}
+        <section aria-label="Conversation" aria-live="polite" class="conversation">
+          {% if captured_text is not none %}
+            <div class="message user-message">
+              <span class="message-label">You</span>
+              {{ captured_text }}
+            </div>
+          {% endif %}
+          {% if llm_response %}
+            <div class="message assistant-message">
+              <span class="message-label">Assistant</span>
+              {{ llm_response }}
+            </div>
+          {% endif %}
+          {% if error_message %}
+            <div class="message assistant-message">
+              <span class="message-label">Assistant</span>
+              {{ error_message }}
+            </div>
+          {% endif %}
+        </section>
+      {% endif %}
       <form method="post">
-        <input name="user_text" type="text" placeholder="Type a question..." value="{{ captured_text or '' }}" required>
+        <input aria-label="Your message" name="user_text" type="text" placeholder="Type a question..." value="{{ captured_text or '' }}" required>
         <button type="submit">Go</button>
       </form>
-      {% if captured_text is not none %}
-        <output aria-live="polite"><strong>Python captured:</strong> {{ captured_text }}</output>
-      {% endif %}
-      {% if llm_response %}
-        <output aria-live="polite"><strong>Groq replied:</strong> {{ llm_response }}</output>
-      {% endif %}
-      {% if error_message %}
-        <output aria-live="polite"><strong>Error:</strong> {{ error_message }}</output>
-      {% endif %}
     </main>
   </body>
 </html>
