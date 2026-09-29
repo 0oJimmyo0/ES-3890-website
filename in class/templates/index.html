@@ -50,8 +50,19 @@
       .empty-state { margin: auto; color: #8a95a3; font-size: 0.95rem; text-align: center; }
       .message { max-width: min(84%, 42rem); padding: 0.9rem 1rem; border-radius: 1rem; font-size: 0.96rem; line-height: 1.65; overflow-wrap: anywhere; white-space: pre-wrap; }
       .user-message { align-self: flex-end; border: 1px solid #e0e4e9; border-bottom-right-radius: 0.3rem; background: #e9edf2; color: #303943; }
-      .assistant-message { align-self: flex-start; border: 1px solid #e7ecf2; border-bottom-left-radius: 0.3rem; background: #fff; color: #202a36; }
+      .assistant-message { align-self: flex-start; border: 1px solid #e7ecf2; border-bottom-left-radius: 0.3rem; background: #fff; color: #202a36; white-space: normal; }
       .message-label { display: block; margin-bottom: 0.3rem; color: #718096; font-size: 0.72rem; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; }
+      .message-content > :first-child { margin-top: 0; }
+      .message-content > :last-child { margin-bottom: 0; }
+      .message-content p, .message-content ul, .message-content ol, .message-content blockquote { margin: 0 0 0.75rem; }
+      .message-content ul, .message-content ol { padding-left: 1.4rem; }
+      .message-content blockquote { padding-left: 0.85rem; border-left: 3px solid #d8e1ed; color: #586779; }
+      .message-content pre { max-width: 100%; overflow-x: auto; padding: 0.8rem; border-radius: 0.55rem; background: #f2f5f9; font-size: 0.86rem; line-height: 1.5; }
+      .message-content code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+      .message-content :not(pre) > code { padding: 0.12em 0.35em; border-radius: 0.3rem; background: #eef1f5; }
+      .message-content table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+      .message-content th, .message-content td { padding: 0.45rem 0.65rem; border: 1px solid #dce2ea; text-align: left; }
+      .message-content th { background: #f2f5f9; }
       .composer { display: flex; flex: 0 0 auto; gap: 0.65rem; margin-top: 1rem; padding: 0.55rem; border: 1px solid #cfd7e1; border-radius: 0.8rem; background: #fff; box-shadow: 0 0.25rem 0.9rem #17202a0a; }
       input {
         min-width: 0;
@@ -107,7 +118,11 @@
           {% for message in messages %}
             <div class="message {{ 'user-message' if message.role == 'user' else 'assistant-message' }}">
               <span class="message-label">{{ 'You' if message.role == 'user' else 'Assistant' }}</span>
-              {{ message.content }}
+              {% if message.role == 'assistant' %}
+                <div class="message-content">{{ message.rendered_content }}</div>
+              {% else %}
+                {{ message.content }}
+              {% endif %}
             </div>
           {% endfor %}
         {% else %}
