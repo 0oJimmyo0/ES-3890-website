@@ -12,4 +12,5 @@ coverage
 *.log
 .DS_Store
 *.pdf
+!public/cv/*.pdf
 *.tsbuildinfo

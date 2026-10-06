@@ -43,9 +43,9 @@ export function Hero() {
             <Button href="/research">
               View Research <ArrowRight aria-hidden="true" size={16} />
             </Button>
-            <Button href="/cv" variant="secondary">
+            <Button href="/cv/Mingyang_Jiang_CV.pdf" variant="secondary">
               <FileText aria-hidden="true" size={16} />
-              View CV
+              Download CV
             </Button>
           </div>
         </div>

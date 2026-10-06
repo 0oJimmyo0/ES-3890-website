@@ -5,6 +5,8 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { profile } from "@/data/profile";
 
+const CV_URL = "/cv/Mingyang_Jiang_CV.pdf";
+
 export const metadata: Metadata = {
   title: "CV | Mingyang Jiang",
   description: "Curriculum vitae and academic profile of Mingyang Jiang.",
@@ -25,11 +27,18 @@ export default function CVPage() {
             {profile.name}&apos;s academic CV
           </h2>
           <p className="mt-4 text-sm leading-6 text-muted">
-            The current public profile summarizes Mingyang&apos;s research interests, experience, and academic background. A downloadable CV will be published here when an approved public version is available.
+            View or download the current academic CV, including research experience, publications, education, and skills.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
+            <Button href={CV_URL} variant="secondary">Open CV</Button>
+            <a
+              href={CV_URL}
+              download
+              className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-sm font-semibold text-white transition-colors hover:bg-accent-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            >
+              Download PDF
+            </a>
             <Button href="/about" variant="secondary">View About</Button>
-            <Button href="/research">View Research</Button>
           </div>
         </div>
       </section>
