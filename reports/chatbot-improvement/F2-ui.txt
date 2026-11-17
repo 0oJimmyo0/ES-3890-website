@@ -1,0 +1,34 @@
+Ask About My Research
+
+Ask about my research, publications, experience, or academic background.
+
+Response length
+Response length
+Short
+Detailed
+
+More context, methods, and contributions when available.
+
+Explain the TRACE project and Mingyang's contribution.
+
+DETAILED ANSWER
+
+The TRACE project is a research effort focused on developing a large‑scale EEG foundation model that can learn representations across diverse recording settings and montages. The main problem addressed is the difficulty of transferring EEG knowledge when datasets differ in electrode placement and acquisition protocols. TRACE tackles this by exploring temporal routing and cross‑channel expert sharing within an autoregressive framework, aiming to create a model that generalizes well to new datasets and downstream tasks.
+
+Mingyang’s role in the project includes:
+- Collecting, cleaning, and preprocessing multi‑source EEG data from various sources.
+- Implementing baseline foundation models for comparison with the proposed approach.
+- Contributing to downstream evaluation of the model’s performance on representation learning tasks.
+
+These contributions are documented in the project’s research record and in Mingyang’s experience as a research intern at the Clinic NLP Lab.
+
+SOURCES
+
+Research — TRACE: EEG Foundation Model
+Experience — Clinic NLP Lab
+Publications — TRACE: Temporal Routing with Autoregressive Cross-channel Experts for EEG Representation Learning
+Research — Backbone-Informed Interaction Adapters
+Enter to send · Shift + Enter for a new line
+0/500
+
+Answers are grounded in the public portfolio and may be incomplete.

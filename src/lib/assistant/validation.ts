@@ -1,3 +1,5 @@
+import type { ResponseMode } from "@/lib/assistant/responseMode";
+
 export type AssistantHistoryMessage = {
   role: "user" | "assistant";
   content: string;
@@ -6,6 +8,7 @@ export type AssistantHistoryMessage = {
 export type AssistantRequest = {
   question: string;
   history: AssistantHistoryMessage[];
+  responseMode: ResponseMode;
 };
 
 type ValidationResult =
@@ -21,7 +24,10 @@ export function validateAssistantRequest(payload: unknown): ValidationResult {
     return { ok: false, message: "Request body must be a JSON object." };
   }
 
-  const body = payload as { question?: unknown; history?: unknown };
+  const body = payload as { question?: unknown; history?: unknown; responseMode?: unknown };
+  if (body.responseMode !== undefined && !["standard", "short", "detailed"].includes(body.responseMode as string)) {
+    return { ok: false, message: "Response mode must be standard, short, or detailed." };
+  }
   if (typeof body.question !== "string") {
     return { ok: false, message: "Question must be a string." };
   }
@@ -58,6 +64,6 @@ export function validateAssistantRequest(payload: unknown): ValidationResult {
     history.push({ role: candidate.role, content: candidate.content.trim() });
   }
 
-  return { ok: true, value: { question, history } };
+  return { ok: true, value: { question, history, responseMode: (body.responseMode as ResponseMode | undefined) ?? "standard" } };
 }
 

@@ -1,0 +1,39 @@
+Ask About My Research
+
+Ask about my research, publications, experience, or academic background.
+
+Response length
+Response length
+Short
+Detailed
+
+Key facts in a quick answer.
+
+Tell me about TRACE.
+
+SHORT ANSWER
+
+TRACE is an autoregressive EEG foundation model developed at Yale’s Clinic NLP Lab. It learns representations across heterogeneous montages and recording settings, using temporal routing and cross‑channel expert sharing. The project collects, cleans, and preprocesses multi‑source EEG data, implements baseline models, and evaluates downstream performance. The manuscript “TRACE: Temporal Routing with Autoregressive Cross‑channel Experts for EEG Representation Learning” is under review for NeurIPS 2026.
+
+SOURCES
+
+Experience — Clinic NLP Lab
+Research — TRACE: EEG Foundation Model
+Publications — TRACE: Temporal Routing with Autoregressive Cross-channel Experts for EEG Representation Learning
+
+What is its current status?
+
+SHORT ANSWER
+
+TRACE: EEG Foundation Model is currently under review.
+
+SOURCES
+
+Research — TRACE: EEG Foundation Model
+Experience — Clinic NLP Lab
+Publications — TRACE: Temporal Routing with Autoregressive Cross-channel Experts for EEG Representation Learning
+Publications — Testing Backbone-Informed Interaction Adapters for EEG Foundation Models: A Capacity-Controlled Study
+Enter to send · Shift + Enter for a new line
+0/500
+
+Answers are grounded in the public portfolio and may be incomplete.

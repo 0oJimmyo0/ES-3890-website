@@ -1,0 +1,9 @@
+{
+  "src/app/api/assistant/route.ts": "120f15014ea0ff5f28ec2c19e244554c34bb49dbe130d84cb17aa14df8711a47",
+  "src/lib/prompt.ts": "b43de8f10bac78bffb2e2992cdf91b028a85b326127e30804f711dbbccb3ed1e",
+  "docs/academic-assistant-system-prompt.txt": "3560690ba98183311c402176426e7e012385f3a95fb8dffffe2d7ed256b93ee4",
+  "src/lib/assistant/validation.ts": "c4dac430428f02389a37a12b0552bca679858725e825f1db59240458a919d4ca",
+  "src/lib/assistant/client.ts": "5d693372638699c81ed43896af88e4eed0a4df8df9589484c2ee4e8349755d43",
+  "src/components/assistant/AssistantPanel.tsx": "946639d45b5a09bfd35ef830611375b15dc04ad73a19b86330ee86bf38d5a24c",
+  "src/components/assistant/AssistantMessages.tsx": "7247af48f759ea171dd1fdb16a0150630a9c11e5b820bfaad7903b2c701e060d"
+}

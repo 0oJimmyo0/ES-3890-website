@@ -1,0 +1,119 @@
+Publications | Mingyang Jiang
+Mingyang Jiang
+Home
+Research
+Publications
+Experience
+CV
+About
+Publications
+Publications
+Selected papers, posters, and manuscripts across clinical NLP, EEG / NeuroAI, and language-model evaluation.
+Selected Work
+Status labels reflect the current CV and distinguish submissions, review, and acceptance.
+Characterizing Treatment-Context Medication Evidence Across Clinic Notes and Structured EHR Medication History
+M. Jiang, C. Ni, W. Liu, Z. Yin
+·
+IEEE International Conference on Bioinformatics and Biomedicine (BIBM)
+· 2026
+·
+Submitted
+Clinical NLP
+EHR
+Medication Evidence
+arXiv
+Source-Grounded and Auditable Contract-First Generation of Clinical Transition Notes from Electronic Health Records
+M. Jiang, B. Ondov, C.-H. Chang, H. Xu
+·
+Manuscript in preparation; intended submission to npj Digital Medicine
+·
+Manuscript in Preparation
+Clinical NLP
+Provenance
+Clinical Generation
+Heterogeneous Effects of Cross-Depth Aggregation and Soft-Routed Expert Capacity in CBraMod Fine-Tuning
+M. Jiang, Y. Li, D. Moyer, H. Xu, C. Chang
+·
+IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)
+· 2027
+·
+Submitted
+EEG
+Foundation Models
+Fine-Tuning
+Testing Backbone-Informed Interaction Adapters for EEG Foundation Models: A Capacity-Controlled Study
+M. Jiang, Y. Li, D. Moyer, F. Ma, H. Xu, C. Chang
+·
+Transactions on Machine Learning Research
+·
+Submitted
+EEG
+Adapters
+Transfer Learning
+Note-to-Structured EHR Concordance: Pipeline and Drug Normalization
+M. Jiang, C. Ni, Z. Yin
+·
+AMIA 2026
+· 2026
+·
+Accepted
+Clinical NLP
+EHR
+Medication Normalization
+MultiFinBen: Benchmarking Large Language Models for Multilingual and Multimodal Financial Application
+X. Peng et al.
+·
+ACL 2026 Main Conference
+· 2026
+·
+Accepted
+LLM Evaluation
+Financial NLP
+Multimodal
+arXiv
+A Safety-Oriented Hypothetico-Deductive Framework for AI-Assisted Differential Diagnosis
+F. Ma et al.
+·
+Nature Communications
+·
+Major Revision Invited
+Healthcare AI
+Safety
+Clinical Reasoning
+arXiv
+TRACE: Temporal Routing with Autoregressive Cross-channel Experts for EEG Representation Learning
+F. Ma et al.
+·
+NeurIPS 2026
+· 2026
+·
+Under Review
+EEG
+Foundation Models
+Representation Learning
+arXiv
+Ebisu: Benchmarking Large Language Models in Japanese Finance
+X. Peng et al.
+·
+ACL ARR
+· 2026
+·
+Under Review
+LLM Evaluation
+Japanese
+Financial NLP
+arXiv
+HERCULEAN: An Agentic Benchmark for Financial Intelligence
+X. Peng et al.
+·
+ACL ARR
+· 2026
+·
+Under Review
+LLM Evaluation
+Financial NLP
+Agents
+arXiv
+Ask About My Research
+© 2026 Mingyang Jiang
+Research · Publications · CV

@@ -1,0 +1,74 @@
+Mingyang Jiang | Research Portfolio
+Mingyang Jiang
+Home
+Research
+Publications
+Experience
+CV
+About
+Student · Researcher · Lifelong learner
+Mingyang Jiang
+Computer Science Student | Research in EEG, Clinical NLP, and LLM Evaluation.
+I'm an undergraduate computer science student interested in building reliable, human-centered AI systems for healthcare. My research spans EEG / NeuroAI, clinical NLP, and evaluation of large language models.
+View Research
+Download CV
+Research in practice
+Careful data, grounded methods, and reliable evaluation across real-world AI systems.
+Better AI for a healthier, more human future.
+Undergraduate
+Computer Science
+Research Focus
+EEG · Clinical NLP · LLM Evaluation
+Goal
+Better AI for a healthier, more human future
+Featured Research
+Selected projects at the intersection of AI and healthcare.
+View All Research
+Featured
+EEG / NeuroAI
+TRACE: EEG Foundation Model
+Large-scale EEG foundation-model research across heterogeneous recording settings, with emphasis on downstream representation learning and adaptation.
+EEG
+Foundation Model
+Transfer Learning
+Ask AI about this work
+Featured
+LLM Evaluation
+MultiFinBen
+An expert-annotated multilingual and multimodal benchmark for evaluating financial language models.
+Financial NLP
+Multilingual
+Multimodal
+Ask AI about this work
+Latest Publications
+Selected publications and preprints.
+View All Publications
+Characterizing Treatment-Context Medication Evidence Across Clinic Notes and Structured EHR Medication History
+M. Jiang, C. Ni, W. Liu, Z. Yin
+·
+IEEE International Conference on Bioinformatics and Biomedicine (BIBM)
+· 2026
+·
+Submitted
+arXiv
+Heterogeneous Effects of Cross-Depth Aggregation and Soft-Routed Expert Capacity in CBraMod Fine-Tuning
+M. Jiang, Y. Li, D. Moyer, H. Xu, C. Chang
+·
+IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)
+· 2027
+·
+Submitted
+Ask About My Research
+Ask about my research, publications, experience, or academic background.
+Try asking
+What are Mingyang’s main research interests?
+Summarize his EEG research.
+What clinical NLP work has he done?
+Which publications involve EEG?
+Enter to send · Shift + Enter for a new line
+0
+/500
+Answers are grounded in the public portfolio and may be incomplete.
+Ask About My Research
+© 2026 Mingyang Jiang
+Research · Publications · CV

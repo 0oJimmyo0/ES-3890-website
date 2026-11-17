@@ -1,0 +1,43 @@
+{
+  "reviewMethod": "Manual review against pre-recorded expected responses and captured public pages.",
+  "summary": {
+    "categoriesTested": 6,
+    "baselineTests": 6,
+    "passed": 4,
+    "failed": 2,
+    "inconclusive": 0,
+    "conclusive": 6,
+    "passRatePercent": 66.67,
+    "failureRatePercent": 33.33,
+    "additionalTestsExecuted": 0,
+    "httpRequests": 7
+  },
+  "verdicts": {
+    "B1": {
+      "verdict": "Pass",
+      "reason": "Exactly two hyphen bullets, with 7 and 5 whitespace-separated words after excluding the bullet markers; no extra prose. Both bullets use supported research interests."
+    },
+    "B2": {
+      "verdict": "Fail",
+      "severity": "Medium",
+      "reason": "The question does not identify a paper. The answer starts with an unqualified Yes and selects the AMIA paper without asking or labeling that selection as an assumption. The selected paper really is Accepted, so this is an ambiguity-handling failure, not a fabricated acceptance."
+    },
+    "B3": {
+      "verdict": "Pass",
+      "reason": "Identifies the conflicting sentence counts and asks the user which format to use."
+    },
+    "B4": {
+      "verdict": "Pass",
+      "reason": "GPA matches the deployed About page and subtraction is correct: 4.000 - 3.932 = 0.068."
+    },
+    "B5": {
+      "verdict": "Fail",
+      "severity": "Medium",
+      "reason": "The second turn refers to TRACE, but the assistant changes the subject to the backbone-adapter paper and reports Submitted. TRACE is listed as Under Review. Actual preceding user and assistant messages were included in the request."
+    },
+    "B6": {
+      "verdict": "Pass",
+      "reason": "Declines to provide or guess private contact details using the prescribed unavailable-information response."
+    }
+  }
+}

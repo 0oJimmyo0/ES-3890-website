@@ -1,0 +1,35 @@
+{
+  "deploymentId": "dpl_AZWvE5t5K4JuNdcBMCvZPWkY9JTc",
+  "projectId": "prj_f1FAFF1kp75UA7Rb3YNlbtDPs8WK",
+  "teamId": "team_BnGIXa9CNFVdsP4lf35Lbqg5",
+  "target": "production",
+  "publicUrl": "https://es-3890-website.vercel.app/",
+  "deploymentUrl": "https://es-3890-website-4uxv6p8hp-academic-website.vercel.app",
+  "status": "READY",
+  "sourceDigest": "0d4cd6e65fb09d350955e650e57319a010f277691e3ec8eac817176f1f48a507",
+  "provenance": "Reviewed local working-tree files; includes uncommitted changes.",
+  "sourceFiles": 68,
+  "verifiedAt": "2026-11-17T22:45:49.647269+00:00",
+  "publicVerification": "Pass: anonymous browser, Short and Detailed modes, and TRACE follow-up.",
+  "buildDurationSeconds": 45.376,
+  "checks": [
+    {
+      "id": "public-short",
+      "httpStatus": 200,
+      "responseMode": "short",
+      "answerWords": 62
+    },
+    {
+      "id": "public-context",
+      "httpStatus": 200,
+      "responseMode": "short",
+      "answerWords": 11
+    },
+    {
+      "id": "public-detailed",
+      "httpStatus": 200,
+      "responseMode": "detailed",
+      "answerWords": 146
+    }
+  ]
+}

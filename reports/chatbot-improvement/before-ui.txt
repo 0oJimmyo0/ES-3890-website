@@ -1,0 +1,29 @@
+Ask About My Research
+
+Ask about my research, publications, experience, or academic background.
+
+Tell me about TRACE.
+
+TRACE is an autoregressive EEG foundation model project focused on representation learning across heterogeneous montages and recording settings. The research investigates temporal routing and cross‑channel expert sharing to enable transferable EEG representations. Mingyang contributed by collecting, cleaning, and preprocessing multi‑source EEG data, implementing baseline foundation models, and evaluating downstream performance. The project is currently under review. The related publication, “TRACE: Temporal Routing with Autoregressive Cross‑channel Experts for EEG Representation Learning,” is also under review and was submitted to NeurIPS 2026.
+
+SOURCES
+
+Experience — Clinic NLP Lab
+Research — TRACE: EEG Foundation Model
+Publications — TRACE: Temporal Routing with Autoregressive Cross-channel Experts for EEG Representation Learning
+
+What is its current status?
+
+That information is not available in the public portfolio.
+
+SOURCES
+
+Publications — Testing Backbone-Informed Interaction Adapters for EEG Foundation Models: A Capacity-Controlled Study
+Publications — Heterogeneous Effects of Cross-Depth Aggregation and Soft-Routed Expert Capacity in CBraMod Fine-Tuning
+Publications — Source-Grounded and Auditable Contract-First Generation of Clinical Transition Notes from Electronic Health Records
+Publications — Ebisu: Benchmarking Large Language Models in Japanese Finance
+Publications — Note-to-Structured EHR Concordance: Pipeline and Drug Normalization
+Enter to send · Shift + Enter for a new line
+0/500
+
+Answers are grounded in the public portfolio and may be incomplete.

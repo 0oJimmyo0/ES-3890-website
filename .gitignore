@@ -13,4 +13,6 @@ coverage
 .DS_Store
 *.pdf
 !public/cv/*.pdf
+!docs/course-chatbot-error-report.pdf
+!docs/course-chatbot-improvement-report.pdf
 *.tsbuildinfo

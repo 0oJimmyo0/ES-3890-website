@@ -1,0 +1,28 @@
+Ask About My Research
+
+Ask about my research, publications, experience, or academic background.
+
+Response length
+Response length
+Short
+Detailed
+
+Key facts in a quick answer.
+
+Summarize Mingyang's research interests.
+
+SHORT ANSWER
+
+Mingyang’s research focuses on building reliable, human‑centered AI for real‑world settings, especially healthcare. Key interests include:
+
+- EEG / NeuroAI
+- Clinical NLP and heterogeneous clinical evidence
+- Evaluation of large language models (LLM) with an emphasis on careful data curation, grounded generation, and trustworthy evaluation.
+
+SOURCES
+
+About — Overview
+Enter to send · Shift + Enter for a new line
+0/500
+
+Answers are grounded in the public portfolio and may be incomplete.

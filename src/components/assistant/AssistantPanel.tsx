@@ -8,6 +8,7 @@ import { AssistantHeader } from "@/components/assistant/AssistantHeader";
 import { AssistantMessages, type ChatMessage } from "@/components/assistant/AssistantMessages";
 import { SuggestedQuestions } from "@/components/assistant/SuggestedQuestions";
 import { AssistantClientError, askAssistant, type AssistantHistoryMessage } from "@/lib/assistant/client";
+import type { ResponseMode } from "@/lib/assistant/responseMode";
 
 export type AssistantPageContext = "home" | "research" | "publications" | "experience" | "about" | "cv";
 export type AssistantPanelVariant = "home" | "launcher";
@@ -72,6 +73,7 @@ function errorMessage(error: unknown) {
 export function AssistantPanel({ pageContext, variant }: AssistantPanelProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
+  const [responseMode, setResponseMode] = useState<Exclude<ResponseMode, "standard">>("short");
   const [error, setError] = useState<string | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [lastQuestion, setLastQuestion] = useState<string | null>(null);
@@ -88,17 +90,17 @@ export function AssistantPanel({ pageContext, variant }: AssistantPanelProps) {
     setLoading(true);
 
     try {
-      const response = await askAssistant(trimmedQuestion, history);
+      const response = await askAssistant(trimmedQuestion, history, responseMode);
       setMessages((current) => [
         ...current,
-        { id: createMessageId(), role: "assistant", content: response.answer, sources: response.sources },
+        { id: createMessageId(), role: "assistant", content: response.answer, sources: response.sources, responseMode },
       ]);
     } catch (requestError) {
       setError(errorMessage(requestError));
     } finally {
       setLoading(false);
     }
-  }, [loading, messages]);
+  }, [loading, messages, responseMode]);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -138,6 +140,21 @@ export function AssistantPanel({ pageContext, variant }: AssistantPanelProps) {
     return (
       <div className="flex min-h-0 flex-1 flex-col">
         <AssistantHeader onClose={close} />
+        <fieldset className="shrink-0 border-b border-line px-5 py-3" disabled={loading}>
+          <legend className="sr-only">Response length</legend>
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-xs font-medium text-muted">Response length</span>
+            <div className="flex gap-1 rounded-md border border-line bg-paper p-1">
+              {(["short", "detailed"] as const).map((mode) => (
+                <label className={`cursor-pointer rounded px-3 py-1 text-xs focus-within:ring-2 focus-within:ring-accent ${responseMode === mode ? "bg-accent text-white" : "text-muted"}`} key={mode}>
+                  <input className="sr-only" type="radio" name={`response-length-${variant}-${close ? "dialog" : "inline"}`} value={mode} checked={responseMode === mode} onChange={() => setResponseMode(mode)} />
+                  {mode === "short" ? "Short" : "Detailed"}
+                </label>
+              ))}
+            </div>
+          </div>
+          <p className="mt-2 text-[0.68rem] leading-4 text-muted">{responseMode === "short" ? "Key facts in a quick answer." : "More context, methods, and contributions when available."}</p>
+        </fieldset>
         <div aria-live="polite" className="min-h-0 flex-1 overflow-y-auto" role="log">
           {messages.length === 0 ? (
             <SuggestedQuestions disabled={loading} onSelect={submitQuestion} questions={suggestions[pageContext]} />

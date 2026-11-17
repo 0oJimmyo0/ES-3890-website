@@ -1,3 +1,5 @@
+import type { ResponseMode } from "@/lib/assistant/responseMode";
+
 export type AssistantRole = "user" | "assistant";
 
 export type AssistantSource = {
@@ -35,11 +37,12 @@ export class AssistantClientError extends Error {
 export async function askAssistant(
   question: string,
   history: AssistantHistoryMessage[],
+  responseMode: ResponseMode = "standard",
 ): Promise<AssistantResponse> {
   const response = await fetch("/api/assistant", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ question, history }),
+    body: JSON.stringify({ question, history, responseMode }),
   });
 
   const data = (await response.json().catch(() => null)) as AssistantResponse | AssistantErrorPayload | null;

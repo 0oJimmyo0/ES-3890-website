@@ -1,0 +1,143 @@
+Research | Mingyang Jiang
+Mingyang Jiang
+Home
+Research
+Publications
+Experience
+CV
+About
+Research
+Research
+My work spans EEG / NeuroAI, clinical NLP and health AI, and evaluation of large language models.
+Research Themes
+0
+1
+EEG / NeuroAI
+Foundation models and efficient downstream adaptation for heterogeneous EEG data.
+0
+2
+Clinical NLP / Health AI
+Source-grounded language systems and structured evidence for clinical workflows.
+0
+3
+LLM Evaluation
+Evaluation of factuality, reliability, and domain-specific behavior in language models.
+0
+1
+EEG / NeuroAI
+EEG / NeuroAI
+TRACE: EEG Foundation Model
+Large-scale EEG foundation-model research across heterogeneous recording settings, with emphasis on downstream representation learning and adaptation.
+Under Review
+Problem
+EEG datasets vary across montages and recording settings, making transferable representation learning difficult.
+Approach
+TRACE investigates temporal routing and cross-channel expert sharing for autoregressive EEG representation learning.
+Contribution
+The project studies a foundation-model approach for cross-dataset and cross-task EEG learning.
+My Role
+Collected, cleaned, and preprocessed multi-source EEG data; implemented baseline models; and contributed to downstream evaluation.
+EEG
+Foundation Model
+Transfer Learning
+EEG / NeuroAI
+CBraMod Fine-Tuning and Capacity
+A study of cross-depth aggregation and soft-routed expert capacity for adapting pretrained EEG backbones.
+Submitted
+Problem
+Efficiently adapting EEG foundation models requires understanding how model depth and expert capacity affect transfer tasks.
+Approach
+The study evaluates depth-aware selective adaptation with lightweight specialist modules and task-aware routing.
+Contribution
+The work characterizes heterogeneous effects of cross-depth aggregation and soft-routed expert capacity during fine-tuning.
+My Role
+Developed and evaluated depth-aware selective adaptation methods and contributed to the submitted manuscript.
+EEG
+Parameter-Efficient Adaptation
+Transfer Learning
+EEG / NeuroAI
+Backbone-Informed Interaction Adapters
+A capacity-controlled study of interaction adapters for efficient EEG foundation-model adaptation.
+Submitted
+Problem
+Adapter design needs to preserve useful backbone information while controlling the capacity added for downstream tasks.
+Approach
+The study tests backbone-informed interaction adapters under controlled capacity settings.
+Contribution
+The work evaluates an efficient adaptation strategy for pretrained EEG models across transfer tasks.
+My Role
+Completed experiments and contributed to the manuscript submitted to Transactions on Machine Learning Research.
+EEG
+Adapters
+Efficient Adaptation
+0
+2
+Clinical NLP / Health AI
+Clinical NLP / Health AI
+Clinical NLP for Medication Safety
+Note-grounded and structured EHR medication evidence, deterministic normalization, and reliable clinical information integration.
+Submitted
+Problem
+Medication evidence can differ between clinic notes and structured EHR medication history, complicating treatment-context analysis.
+Approach
+The project combines candidate generation with deterministic normalization and semantic and temporal mismatch analysis.
+Contribution
+It establishes a pipeline for comparing treatment-context medication evidence across clinical sources.
+My Role
+Studied medication concordance, developed the normalization and evaluation framework, and wrote the manuscript.
+Clinical NLP
+Information Extraction
+Healthcare AI
+Clinical NLP / Health AI
+Source-Grounded Clinical Transition Note Generation
+A contract-first pipeline for auditable clinical transition notes from de-identified EHR discharge records.
+Ongoing
+Problem
+Clinical transition notes must preserve high-risk discharge information and remain faithful to their source records.
+Approach
+The pipeline uses provenance-preserving extraction, medication atomization, deterministic rendering, patient-disjoint evaluation, and refusal rules.
+Contribution
+The project defines evaluations for factual faithfulness, material omissions, representation support, and downstream utility.
+My Role
+Developed the extraction, rendering, evaluation, and refusal components and am preparing blinded clinician evaluation.
+Clinical NLP
+Provenance
+Factuality
+0
+3
+LLM Evaluation
+LLM Evaluation
+MultiFinBen
+An expert-annotated multilingual and multimodal benchmark for evaluating financial language models.
+Accepted
+Problem
+Financial language-model performance needs evaluation across languages, modalities, and domain-specific reasoning tasks.
+Approach
+The benchmark combines financial reports, bilingual financial news, cross-lingual question answering, and comparative model evaluation.
+Contribution
+The project provides a benchmark for analyzing multilingual and multimodal financial LLM behavior.
+My Role
+Processed financial reports and bilingual news data, supported task construction, and evaluated models on PolyFiQA subsets.
+Financial NLP
+Multilingual
+Multimodal
+arXiv
+LLM Evaluation
+Ebisu
+A benchmark for Japanese financial language understanding grounded in corporate communication.
+Under Review
+Problem
+Financial language understanding includes pragmatic and terminology phenomena that are not captured by generic benchmarks.
+Approach
+The project uses Japanese corporate disclosures, including IPO materials and financial reports, for dataset construction and annotation.
+Contribution
+The benchmark evaluates model weaknesses on pragmatic inference and term extraction tasks.
+My Role
+Collected Japanese corporate disclosure data and supported dataset construction, annotation, evaluation, and analysis.
+Financial NLP
+Japanese
+Benchmarking
+arXiv
+Ask About My Research
+© 2026 Mingyang Jiang
+Research · Publications · CV

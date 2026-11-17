@@ -1,0 +1,22 @@
+{
+  "environment": "Local browser \u2192 Next.js route \u2192 canonical portfolio retrieval \u2192 live Groq \u2192 actual chat interface",
+  "date": "2026-11-17",
+  "model": "openai/gpt-oss-20b",
+  "temperature": 0.15,
+  "weaknessBefore": "Fail",
+  "weaknessAfter": "Pass",
+  "featureTests": {
+    "passed": 3,
+    "failed": 0,
+    "inconclusive": 0
+  },
+  "checks": {
+    "typecheck": "Pass",
+    "lint": "Pass",
+    "productionBuild": "Pass",
+    "assistantDevelopmentChecks": "Pass",
+    "retrievalRegression": "33/33 supported Top-5 hits, 5/5 unsupported queries empty",
+    "mobileAndKeyboard": "390px panel fits; ArrowRight selects Detailed radio"
+  },
+  "publicDeployment": "Deployed to https://es-3890-website.vercel.app/ on November 17, 2026; anonymous browser verified Short, Detailed, and TRACE follow-up."
+}

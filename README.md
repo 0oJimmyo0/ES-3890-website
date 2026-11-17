@@ -2,6 +2,16 @@
 
 Academic portfolio with a server-side grounded research assistant.
 
+## November chatbot improvements
+
+The chat panel now includes **Short** and **Detailed** response controls. Short is the UI default and asks for at most 70 words; Detailed asks for 120–180 words on broad research questions when the evidence supports it. Simple facts and unavailable/private information still receive brief answers. The server validates the preference and adjusts both instructions and the completion budget. Existing API clients that omit `responseMode` keep the standard behavior.
+
+Pronoun follow-ups such as “What is its current status?” now use recent user questions to restore the topic before retrieving portfolio evidence. Assistant replies are not treated as a source of retrieval context or facts. A standalone question starts a new topic. History remains limited to six messages; reference resolution uses a small phrase heuristic and can still be ambiguous.
+
+The new assignment report is in `docs/course-chatbot-improvement-report.md` and its PDF. Browser screenshots, original API responses, and reviewed results are saved under `reports/chatbot-improvement/`. The before screenshots were captured from the unchanged local MVP before source edits, using the live Groq service. The new feature and fix were deployed to https://es-3890-website.vercel.app/ on November 17, 2026. An anonymous-browser check confirmed both response modes and the TRACE follow-up on the public site.
+
+`npm run test:assistant` includes targeted checks for pronoun follow-ups, topic changes, chained context, untrusted assistant history, and response-mode validation. Use `npm run dev` to demonstrate the updated chat locally, open the assistant, choose Short or Detailed, and send a portfolio question.
+
 ## Local development
 
 ```bash

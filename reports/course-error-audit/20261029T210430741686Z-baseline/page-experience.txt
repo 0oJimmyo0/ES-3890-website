@@ -1,0 +1,85 @@
+Experience | Mingyang Jiang
+Mingyang Jiang
+Home
+Research
+Publications
+Experience
+CV
+About
+Experience
+Experience
+Research contributions across EEG / NeuroAI, clinical NLP, and language-model evaluation, alongside teaching and communication experience.
+Research Experience
+Clinic NLP Lab ·
+Yale School of Medicine (BIDS)
+Research Intern
+June 2025 – Present
+New Haven, CT
+Research across EEG foundation models and source-grounded clinical transition-note generation.
+Contributed to TRACE, an autoregressive EEG foundation model for representation learning across heterogeneous montages and recording settings.
+Collected, cleaned, and preprocessed multi-source EEG data and implemented baseline foundation models for comparison.
+Developed provenance-preserving extraction, medication atomization, patient-disjoint evaluation, and refusal rules for clinical transition notes.
+Designed held-out evaluation for factual faithfulness, clinically material omissions, representation support, and downstream utility.
+Clinical NLP
+EEG
+EHR Data Curation
+LLM Evaluation
+Neurdy Lab ·
+Vanderbilt University
+VUSE Research Fellow
+February 2026 – Present
+Nashville, TN
+EEG foundation-model research focused on efficient downstream adaptation across heterogeneous transfer tasks.
+Conducted EEG foundation-model research under PI Dr. Catie Chang.
+Developed and evaluated depth-aware selective adaptation methods using lightweight specialist modules and task-aware routing.
+Contributed to the CBraMod fine-tuning paper submitted to ICASSP 2027 and completed experiments for the TMLR submission.
+EEG
+Foundation Models
+Transfer Learning
+NeuroAI
+SPHERE Lab ·
+Vanderbilt University Medical Center
+Research Assistant
+February 2026 – Present
+Nashville, TN
+Clinic-note and structured EHR medication concordance research under PI Dr. Zhijun Yin.
+Studied note-grounded normalization and cross-source comparison for treatment-context medication evidence.
+Developed a deterministic normalization and evaluation framework combining candidate generation with semantic and temporal mismatch analysis.
+Wrote the manuscript submitted to BIBM 2026 and produced an AMIA 2026 accepted poster.
+Clinical NLP
+EHR
+Medication Evidence
+The Fin AI
+Research Contributor
+April 2025 – June 2026
+Contributions to multilingual, multimodal, and Japanese financial language-model benchmarks.
+Processed financial reports and bilingual financial news for cross-lingual question-answering task construction.
+Evaluated language models on PolyFiQA subsets and built comparative analyses of multilingual reasoning performance.
+Collected Japanese corporate disclosure data to support dataset construction and annotation for Ebisu.
+Financial NLP
+Multilingual
+Benchmarking
+Teaching Experience
+Vanderbilt University
+Invited Speaker
+Summer 2026
+Nashville, TN
+Delivered a 15-minute talk on transformers, transfer learning, and EEG time-series intelligence.
+Presented “From Attention to Brain Foundation Models” at Vanderbilt AI Summer School 2026.
+Teaching
+EEG
+Communication
+Vanderbilt University
+Teaching Assistant, CS 2281: Computer Architecture
+Fall 2025
+Nashville, TN
+Supported laboratory instruction, assessment, and student troubleshooting in computer architecture.
+Supervised laboratory sessions and provided technical guidance on processor design, memory systems, and instruction set architecture.
+Evaluated in-lab assessments and laboratory reports and coordinated make-up sessions.
+Collaborated with the course instructor to align laboratory activities with course objectives.
+Teaching
+Computer Architecture
+Mentoring
+Ask About My Research
+© 2026 Mingyang Jiang
+Research · Publications · CV

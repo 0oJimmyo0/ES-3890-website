@@ -1,0 +1,25 @@
+{
+  "timestampUtc": "2026-11-17T22:32:30.165Z",
+  "httpStatus": 200,
+  "response": {
+    "answer": "The TRACE project is currently listed as “Under Review.”",
+    "sources": [
+      {
+        "title": "Research — TRACE: EEG Foundation Model",
+        "href": "/research#trace-eeg-foundation-model"
+      },
+      {
+        "title": "Experience — Clinic NLP Lab",
+        "href": "/experience#yale-clinic-nlp-lab"
+      },
+      {
+        "title": "Publications — TRACE: Temporal Routing with Autoregressive Cross-channel Experts for EEG Representation Learning",
+        "href": "/publications#trace-neurips"
+      },
+      {
+        "title": "Publications — Testing Backbone-Informed Interaction Adapters for EEG Foundation Models: A Capacity-Controlled Study",
+        "href": "/publications#backbone-adapters-tmlr"
+      }
+    ]
+  }
+}

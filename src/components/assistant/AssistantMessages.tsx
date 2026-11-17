@@ -1,4 +1,5 @@
 import type { AssistantSource } from "@/lib/assistant/client";
+import type { ResponseMode } from "@/lib/assistant/responseMode";
 
 import { SourceChips } from "@/components/assistant/SourceChips";
 
@@ -7,6 +8,7 @@ export type ChatMessage = {
   role: "user" | "assistant";
   content: string;
   sources?: AssistantSource[];
+  responseMode?: ResponseMode;
 };
 
 type AssistantMessagesProps = {
@@ -24,6 +26,7 @@ export function AssistantMessages({ messages }: AssistantMessagesProps) {
             </p>
           ) : (
             <div className="max-w-[94%] rounded-lg border border-accent/10 bg-accent-soft/65 px-3.5 py-3 text-sm leading-6 text-ink">
+              {message.responseMode && message.responseMode !== "standard" && <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-wide text-accent-dark">{message.responseMode === "short" ? "Short answer" : "Detailed answer"}</p>}
               <p className="whitespace-pre-wrap">{message.content}</p>
               {message.sources && <SourceChips sources={message.sources} />}
             </div>

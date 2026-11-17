@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { knowledgeBase } from "@/data/knowledge";
 import { getGroqClient, GroqConfigurationError } from "@/lib/groq";
 import { validateAssistantRequest } from "@/lib/assistant/validation";
+import { resolveRetrievalQuery } from "@/lib/assistant/context";
+import { RESPONSE_MODE_CONFIG } from "@/lib/assistant/responseMode";
 import { buildGroundedPrompt, SYSTEM_PROMPT } from "@/lib/prompt";
 import { retrieve } from "@/lib/retrieval";
 
@@ -42,10 +44,10 @@ function acronym(value: string) {
     .join("");
 }
 
-function ensureCanonicalStatus(question: string, answer: string, results: ReturnType<typeof retrieve>) {
+function ensureCanonicalStatus(question: string, answer: string, results: ReturnType<typeof retrieve>, topicQuestion = question) {
   if (!/\b(status|accepted|published|submitted|under review|major revision)\b/i.test(question)) return answer;
 
-  const questionTokens = question.match(/[A-Za-z][A-Za-z0-9-]{2,}/gu)?.map((token) => token.toLocaleLowerCase()) ?? [];
+  const questionTokens = topicQuestion.match(/[A-Za-z][A-Za-z0-9-]{2,}/gu)?.map((token) => token.toLocaleLowerCase()) ?? [];
   const statusRecords = results
     .map(({ item }) => ({
       item,
@@ -59,7 +61,7 @@ function ensureCanonicalStatus(question: string, answer: string, results: Return
     return questionTokens.some((token) => searchableText.includes(token) || aliases.includes(token));
   });
   const distinctStatuses = new Set(namedRecords.map((record) => record.status));
-  const explicitAcronyms = question.match(/\b[A-Z][A-Z0-9-]{2,}\b/g) ?? [];
+  const explicitAcronyms = topicQuestion.match(/\b[A-Z][A-Z0-9-]{2,}\b/g) ?? [];
   const target = namedRecords.length > 0 && distinctStatuses.size === 1
     ? namedRecords[0]
     : explicitAcronyms.length > 0 && statusRecords.length > 0
@@ -91,8 +93,9 @@ export async function POST(request: Request) {
   const validation = validateAssistantRequest(payload);
   if (!validation.ok) return errorResponse(400, "INVALID_REQUEST", validation.message);
 
-  const { question, history } = validation.value;
-  const results = retrieve(question, knowledgeBase, 5);
+  const { question, history, responseMode } = validation.value;
+  const retrievalQuery = resolveRetrievalQuery(question, history);
+  const results = retrieve(retrievalQuery, knowledgeBase, 5);
 
   if (results.length === 0) {
     return NextResponse.json({ answer: NO_EVIDENCE_ANSWER, sources: [] });
@@ -115,19 +118,19 @@ export async function POST(request: Request) {
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         ...history,
-        { role: "user", content: buildGroundedPrompt(question, results) },
+        { role: "user", content: buildGroundedPrompt(question, results, responseMode, retrievalQuery) },
       ],
       model: groq.model,
       temperature: 0.15,
       reasoning_effort: "low",
       include_reasoning: false,
-      max_completion_tokens: 400,
+      max_completion_tokens: RESPONSE_MODE_CONFIG[responseMode].maxCompletionTokens,
       citation_options: "disabled",
     });
 
     const generatedAnswer = completion.choices[0]?.message?.content?.trim();
     if (!generatedAnswer) return errorResponse(502, "UPSTREAM_INVALID_RESPONSE", "The research assistant returned an empty answer.");
-    const answer = removeInferredGenderedPronouns(ensureCanonicalStatus(question, generatedAnswer, results));
+    const answer = removeInferredGenderedPronouns(ensureCanonicalStatus(question, generatedAnswer, results, retrievalQuery));
 
     const response: {
       answer: string;
