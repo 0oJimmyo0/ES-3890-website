@@ -17,6 +17,9 @@ const serif = Lora({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "2UYvY518QzNp7G17l03QLdj58rRbxqmqoqyDkxvS-Qk",
+  },
   metadataBase: new URL("https://es-3890-website.vercel.app"),
   title: "Mingyang Jiang | Research Portfolio",
   description: "Research portfolio of Mingyang Jiang, focused on EEG / NeuroAI, clinical NLP, and reliable evaluation of AI systems.",
